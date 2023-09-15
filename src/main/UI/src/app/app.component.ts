@@ -14,6 +14,8 @@ import {map} from "rxjs/operators";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+  public enWelcomeMessage: string = "";
+  public frWelcomeMessage: string = "";
 
   constructor(private httpClient:HttpClient){}
 
@@ -28,14 +30,30 @@ export class AppComponent implements OnInit{
   currentCheckInVal!:string;
   currentCheckOutVal!:string;
 
-    ngOnInit(){
+
+  ngOnInit(){
       this.roomsearch= new FormGroup({
         checkin: new FormControl(' '),
         checkout: new FormControl(' ')
       });
 
- //     this.rooms=ROOMS;
+    this.httpClient.get<string>(`${this.baseURL}/messages/en`).subscribe(
+      (response) => {
+        this.enWelcomeMessage = response;
+      },
+      (error) => {
+        console.error(error);
+      })
 
+    this.httpClient.get<string>(`${this.baseURL}/messages/fr`).subscribe(
+      (response) => {
+        this.frWelcomeMessage = response;
+      },
+      (error) => {
+        console.error(error);
+      })
+
+ //     this.rooms=ROOMS;
 
     const roomsearchValueChanges$ = this.roomsearch.valueChanges;
 

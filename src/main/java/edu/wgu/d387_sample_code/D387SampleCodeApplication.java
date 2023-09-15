@@ -5,11 +5,13 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 @SpringBootApplication
 public class D387SampleCodeApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		SpringApplication.run(D387SampleCodeApplication.class, args);
 	}
-
 }
