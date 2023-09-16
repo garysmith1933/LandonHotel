@@ -16,6 +16,9 @@ import {map} from "rxjs/operators";
 export class AppComponent implements OnInit{
   public enWelcomeMessage: string = "";
   public frWelcomeMessage: string = "";
+  public estTime: string = "";
+  public mtTime: string = "";
+  public utcTime: string = "";
 
   constructor(private httpClient:HttpClient){}
 
@@ -36,6 +39,18 @@ export class AppComponent implements OnInit{
         checkin: new FormControl(' '),
         checkout: new FormControl(' ')
       });
+
+    this.httpClient.get<string>(`${this.baseURL}/times/converted`).subscribe(
+      (response) => {
+        console.log("Your times:", response);
+        this.estTime = response[0];
+        this.mtTime = response[1];
+        this.utcTime = response[2];
+      },
+      (error) => {
+        console.error(error);
+      })
+
 
     this.httpClient.get<string>(`${this.baseURL}/messages/en`).subscribe(
       (response) => {
