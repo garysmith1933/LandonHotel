@@ -941,4 +941,6 @@ footer #socialmedia ul li img {
   justify-content: center;
 }
 
-/*# sourceMappingURL=style.css.map */
+.row {
+  margin-top: 1rem;
+}
