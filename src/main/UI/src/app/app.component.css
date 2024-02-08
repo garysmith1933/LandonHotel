@@ -936,4 +936,9 @@ footer #socialmedia ul li img {
   border-radius: 50%;
 }
 
+.navbar {
+  display:flex;
+  justify-content: center;
+}
+
 /*# sourceMappingURL=style.css.map */

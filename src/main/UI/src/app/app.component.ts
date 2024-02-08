@@ -4,10 +4,6 @@ import {HttpClient, HttpResponse,HttpHeaders} from "@angular/common/http";
 import { Observable } from 'rxjs';
 import {map} from "rxjs/operators";
 
-
-
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,7 +18,7 @@ export class AppComponent implements OnInit{
 
   constructor(private httpClient:HttpClient){}
 
-  private baseURL:string='http://localhost:8080';
+  private baseURL:string='https://landon-hotel.onrender.com';
 
   private getUrl:string = this.baseURL + '/room/reservation/v1/';
   private postUrl:string = this.baseURL + '/room/reservation/v1';
